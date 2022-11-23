@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>div {width: 200px;height: 100px;border: 1px solid black;}</style>
+</head>
+<body>
+    <div onmousemove="myFunction(event)" onmouseout="clearCoor()"></div>
+    <p>Mouse over the rectangle above, and get the coordinates of your mouse pointer.</p>
+    <p id="demo"></p>
+    <script>
+        function myFunction(e) {
+            var x = e.clientX;
+            var y = e.clientY;
+            var coor = "Coordinates: (" + x + "," + y + ")";
+            document.getElementById("demo").innerHTML = coor;
+        }
+        function clearCoor() {
+            document.getElementById("demo").innerHTML = "";
+        }
+/*
+        var horaformatoGMT = new Date().toUTCstring();
+
+        var ruta = "/inicio";
+
+        var nombreDominio = "miweb.com";
+
+        */
+       var contador = 0;
+       document.cookie = `contador = ${contador}`;
+
+       //const element = document.getElementById("myBtn");
+       //element.addEventListener("click",sumar());
+
+       function sumar() {
+        let cont = new Number(getCookie("contador"));
+        let neewvalue = cont+1;
+        document.cookie = `contador = ${neewvalue}`;
+        console.log(document.cookie);
+       }
+
+        document.cookie = "nombreCookie=datosCookie[; expires=horaformatoUTC][; path=ruta][; domain=nombreDominio][; secure]";
+        document.cookie="comida_preferida=tripa";
+        //console.log(document.cookie.datosCookie[path]);
+        document.cookie = "usuario=Rodolfo";
+        document.cookie = "usuario=Guillermo";
+        console.log(getCookie("usuario"));
+
+        function getCookie(name) {
+            const value = `; ${document.cookie}`;
+            const parts = value.split(`; ${name}=`);
+            if (parts.length === 2) return parts.pop().split(';').shift();
+        }
+
+        var hoy = new Date();
+        let tomorrow = new Date();
+        tomorrow.setDate(hoy.getDate() + 1);
+        document.cookie = "expires=" + tomorrow.toUTCString() + ";";
+    </script>
+    <button id="myBtn" onclick="sumar()">Sumar</button>
+</body>
+</html>

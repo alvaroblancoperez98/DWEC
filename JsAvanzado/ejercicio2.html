@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta http-equiv="content-type" content="text/html;charset=utf-8">
     <title>Apertura y Cierre de Ventanas</title>
@@ -10,12 +11,12 @@
         }
         var nuevaVentana;
         function crearNueva() {
-          var nuevaVentana = 
-window.open("http://www.google.es", "", "height=400,width=800");
-console.log(nuevaVentana.name);
-nuevaVentana.name = "google";
-console.log(nuevaVentana.name);
-nuevaVentana.blur();
+            var nuevaVentana =
+                window.open("http://www.google.es", "", "height=400,width=800");
+            console.log(nuevaVentana.name);
+            nuevaVentana.name = "google";
+            console.log(nuevaVentana.name);
+            nuevaVentana.blur();
         }
         let sign;
         if (window.confirm("Do you really want to leave?")) {
@@ -23,13 +24,17 @@ nuevaVentana.blur();
         } else {
             sign = prompt("¿Di algo?");
         }
-        console.log("ha dicho"+sign);
+        console.log("ha dicho" + sign);
         function cerrarNueva() {
             if (nuevaVentana) {
                 nuevaVentana.close();
                 nuevaVentana = null;
             }
         }
+        console.log(document.forms);
+        console.log(document.images);
+        console.log(document.cookie);
+        console.log(document.domain);
     </script>
 </head>
 
@@ -37,7 +42,8 @@ nuevaVentana.blur();
     <h1>Abrimos y cerramos ventanas</h1>
     <form>
         <p> <input type="button" id="crear-ventana" value="Crear Nueva Ventana">
-            <input type="button" id="cerrar-ventana" value="Cerrar Nueva Ventana"> </p>
+            <input type="button" id="cerrar-ventana" value="Cerrar Nueva Ventana">
+        </p>
     </form>
 </body>
 
